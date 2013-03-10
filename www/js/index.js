@@ -27,7 +27,6 @@ var app = {
         // This is an event handler function, which means the scope is the event.
         // So, we must explicitly called `app.report()` instead of `this.report()`.
         app.report('deviceready');
-        navigator.geolocation.getCurrentPosition(this.onGeolocationSuccess, this.onGeolocationError);
     },
     report: function(id) {
         // Report the event in the console
@@ -39,6 +38,9 @@ var app = {
         document.querySelector('#' + id + ' .pending').className += ' hide';
         var completeElem = document.querySelector('#' + id + ' .complete');
         completeElem.className = completeElem.className.split('hide').join('');
+        
+        // recupero la posizione corrente
+        navigator.geolocation.getCurrentPosition(app.onGeolocationSuccess, app.onGeolocationError);
     },
     onGeolocationSuccess: function(position) {
         console.log("geolocation success");
