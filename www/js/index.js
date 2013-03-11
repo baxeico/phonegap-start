@@ -45,7 +45,7 @@ var app = {
     onGeolocationSuccess: function(position) {
         console.log("geolocation success");
         var map = document.getElementById('map');
-        map.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + position.coords.latitude + "," + position.coords.longitude + "&zoom=11&size=300x300&sensor=false";
+        map.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + position.coords.latitude + "," + position.coords.longitude + "&zoom=15&size=300x300&sensor=false";
         var geolocation = document.getElementById('geolocation');
         geolocation.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
                             'Longitude: '          + position.coords.longitude             + '<br />';
