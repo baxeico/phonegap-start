@@ -44,8 +44,11 @@ var app = {
     },
     onGeolocationSuccess: function(position) {
         console.log("geolocation success");
-        var element = document.getElementById('map');
-        element.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + position.coords.latitude + "," + position.coords.longitude +"&amp;zoom=11&amp;size=300x300&amp;sensor=false";
+        var map = document.getElementById('map');
+        map.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + position.coords.latitude + "," + position.coords.longitude + "&zoom=11&size=300x300&sensor=false";
+        var geolocation = document.getElementById('geolocation');
+        geolocation.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                            'Longitude: '          + position.coords.longitude             + '<br />';
     },
     onGeolocationError: function(error) {
         alert('code: '    + error.code    + '\n' +
