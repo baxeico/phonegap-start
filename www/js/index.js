@@ -44,15 +44,8 @@ var app = {
     },
     onGeolocationSuccess: function(position) {
         console.log("geolocation success");
-        var element = document.getElementById('geolocation');
-        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
-                            'Longitude: '          + position.coords.longitude             + '<br />' +
-                            'Altitude: '           + position.coords.altitude              + '<br />' +
-                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-                            'Heading: '            + position.coords.heading               + '<br />' +
-                            'Speed: '              + position.coords.speed                 + '<br />' +
-                            'Timestamp: '          + position.timestamp                    + '<br />';
+        var element = document.getElementById('map');
+        element.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + position.coords.latitude + "," + position.coords.longitude +"&amp;zoom=11&amp;size=300x300&amp;sensor=false";
     },
     onGeolocationError: function(error) {
         alert('code: '    + error.code    + '\n' +
